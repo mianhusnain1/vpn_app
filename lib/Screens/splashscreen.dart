@@ -40,10 +40,13 @@ class _SplashState extends State<Splash> {
               const SizedBox(
                 height: 300,
               ),
-              SizedBox(
-                height: 120,
-                width: 120,
-                child: Image.asset("images/logo.png"),
+
+              const SizedBox(
+                child: CircleAvatar(
+                  radius: 80,
+                  backgroundImage: AssetImage("images/logo.png"),
+                  // child: Image.asset("images/logo.png"),
+                ),
               ),
               // ignore: prefer_const_constructors
               SizedBox(

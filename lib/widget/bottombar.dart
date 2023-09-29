@@ -14,8 +14,8 @@ class Bottombar extends StatefulWidget {
 }
 
 class _BottombarState extends State<Bottombar> {
-  int _currentIndex = 0;
-  PageController _pageController = PageController();
+  int _currentIndex = 1;
+  PageController _pageController = PageController(initialPage: 1);
   final List<Widget> _pages = [
     const Favorite(),
     const Home(),

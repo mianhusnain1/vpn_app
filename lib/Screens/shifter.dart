@@ -15,6 +15,13 @@ class Shifter extends StatelessWidget {
       // backgroundColor: Colors.amber,
       drawer: const Navbar(),
       appBar: AppBar(
+        title: const Text("VPN"),
+        centerTitle: true,
+        titleTextStyle: const TextStyle(
+          color: Color.fromARGB(255, 0, 10, 19),
+          fontSize: 25,
+          fontWeight: FontWeight.w300,
+        ),
         backgroundColor: Colors.amber,
         // title: Text(
         //   "VPN",
