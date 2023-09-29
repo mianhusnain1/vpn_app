@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:vpn_app/Screens/setting.dart';
 import 'package:vpn_app/Screens/home.dart';
+import 'package:vpn_app/Screens/setting.dart';
 import 'package:vpn_app/Screens/splashscreen.dart';
+
+// import 'package:vpn_app/Screens/shifter.dart';
 
 class BottomBar extends StatelessWidget {
   const BottomBar({

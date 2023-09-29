@@ -14,6 +14,10 @@ class Navbar extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                   color: Colors.amber, borderRadius: BorderRadius.circular(25)),
+              child: Padding(
+                padding: const EdgeInsets.all(60.0),
+                child: Image.asset("images/logo.png"),
+              ),
             ),
           )
         ],

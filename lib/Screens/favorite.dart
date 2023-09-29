@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
-// import 'package:vpn_app/widget/widget.dart';
 
-class Setting extends StatelessWidget {
-  const Setting({super.key});
+class Favorite extends StatelessWidget {
+  const Favorite({super.key});
 
   @override
   Widget build(BuildContext context) {

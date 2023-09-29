@@ -1,6 +1,8 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:vpn_app/Screens/home.dart';
+import 'package:vpn_app/Screens/shifter.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 // import 'package:vpn_app/main.dart';
@@ -20,7 +22,7 @@ class _SplashState extends State<Splash> {
       Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => Home(),
+            builder: (context) => Shifter(),
           ));
     });
   }
@@ -43,6 +45,7 @@ class _SplashState extends State<Splash> {
                 width: 120,
                 child: Image.asset("images/logo.png"),
               ),
+              // ignore: prefer_const_constructors
               SizedBox(
                 height: 20,
               ),
