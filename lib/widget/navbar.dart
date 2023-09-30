@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
+import 'package:vpn_app/Screens/info.dart';
 
 class Navbar extends StatelessWidget {
   const Navbar({super.key});
@@ -9,6 +10,17 @@ class Navbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Info(),
+                    ));
+              },
+              icon: const Icon(Icons.info))
+        ],
         // ignore: prefer_const_constructors
         title: Text("Back"),
       ),
