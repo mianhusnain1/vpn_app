@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:vpn_app/Screens/shifter.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:vpn_app/widget/widget.dart';
 
 // import 'package:vpn_app/main.dart';
 
@@ -41,13 +42,7 @@ class _SplashState extends State<Splash> {
                 height: 300,
               ),
 
-              const SizedBox(
-                child: CircleAvatar(
-                  radius: 80,
-                  backgroundImage: AssetImage("images/logo.png"),
-                  // child: Image.asset("images/logo.png"),
-                ),
-              ),
+              logo(radius1: 80),
               // ignore: prefer_const_constructors
               SizedBox(
                 height: 20,

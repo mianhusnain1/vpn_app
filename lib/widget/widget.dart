@@ -108,3 +108,40 @@ class BottomBar extends StatelessWidget {
     );
   }
 }
+
+// class logo extends StatelessWidget {
+//   const logo({
+//     Key? key, required this.radius1,
+//   });
+//   final int radius1;
+//   @override
+//   Widget build(BuildContext context) {
+//     double doubleValue = radius1.toDouble();
+//     return const SizedBox(
+//       child: CircleAvatar(
+//         radius: doubleValue,
+//         backgroundImage: AssetImage("images/logo.png"),
+//         // child: Image.asset("images/logo.png"),
+//       ),
+//     );
+//   }
+// }
+class logo extends StatelessWidget {
+  const logo({
+    Key? key,
+    required this.radius1,
+  }) : super(key: key);
+
+  final int radius1;
+
+  @override
+  Widget build(BuildContext context) {
+    double doubleValue = radius1.toDouble();
+    return SizedBox(
+      child: CircleAvatar(
+        radius: doubleValue,
+        backgroundImage: AssetImage("images/logo.png"),
+      ),
+    );
+  }
+}
