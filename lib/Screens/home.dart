@@ -20,7 +20,7 @@ class _HomeState extends State<Home> {
   }
 
   String hourString = "00", minuteString = "00", secondString = "00";
-  int hours = 0, minutes = 58, seconds = 57;
+  int hours = 0, minutes = 0, seconds = 0;
 
   void _startTimer() {
     Timer.periodic(Duration(seconds: 1), (timer) {
