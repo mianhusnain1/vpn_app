@@ -19,15 +19,21 @@ class _HomeState extends State<Home> {
     // _startTimer();
   }
 
+  Timer? _timer;
   String hourString = "00", minuteString = "00", secondString = "00";
   int hours = 0, minutes = 0, seconds = 0;
 
   void _startTimer() {
-    Timer.periodic(Duration(seconds: 1), (timer) {
-      setState(() {
-        _startSeconds();
+    if (_timer == null) {
+      _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+        setState(() {
+          _startSeconds();
+        });
       });
-    });
+    } else {
+      _timer!.cancel();
+      _timer = null;
+    }
   }
 
   void _startSeconds() {
@@ -130,7 +136,22 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   Container(
-                    child: Text("$hourString: $minuteString: $secondString"),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.4,
+                        ),
+                        Container(
+                            alignment: Alignment.center,
+                            child: Text(
+                              "$hourString : $minuteString : $secondString",
+                              style: const TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            )),
+                      ],
+                    ),
                   ),
 
                   // Container(
