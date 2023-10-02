@@ -19,15 +19,31 @@ class _HomeState extends State<Home> {
     // _startTimer();
   }
 
+  bool _isConnected = false;
   Timer? _timer;
   String hourString = "00", minuteString = "00", secondString = "00";
   int hours = 0, minutes = 0, seconds = 0;
+  String connection = "Disconnected";
+  void _connection() {
+    if (_isConnected == false) {
+      setState(() {
+        connection = "Connected";
+        _isConnected = true;
+      });
+    } else if (_isConnected == true) {
+      setState(() {
+        connection = "Disconnected";
+        _isConnected = false;
+      });
+    } else {}
+  }
 
   void _startTimer() {
     if (_timer == null) {
       _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
         setState(() {
           _startSeconds();
+          _isConnected = true;
         });
       });
     } else {
@@ -114,7 +130,13 @@ class _HomeState extends State<Home> {
                         child: InkWell(
                           onTap: () {
                             _startTimer();
+                            _connection();
                             print("Hello");
+                            if (_isConnected == false) {
+                              print('Connected');
+                            } else {
+                              print('Disconnected');
+                            }
                           },
                           child: const CircleAvatar(
                             radius: 90,
@@ -127,11 +149,11 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   Container(
-                    child: const Center(
+                    child: Center(
                       child: Padding(
                         padding: EdgeInsets.only(top: 300.0),
                         child: Text(
-                          "Connected",
+                          "$connection",
                           style: TextStyle(color: Colors.black, fontSize: 25),
                         ),
                       ),
