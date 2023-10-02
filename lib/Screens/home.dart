@@ -33,6 +33,14 @@ class _HomeState extends State<Home> {
     } else {
       _timer!.cancel();
       _timer = null;
+      setState(() {
+        hours = 0;
+        minutes = 0;
+        seconds = 0;
+        hourString = "00";
+        minuteString = "00";
+        secondString = "00";
+      });
     }
   }
 
