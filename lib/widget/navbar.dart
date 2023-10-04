@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:vpn_app/Screens/info.dart';
 import 'package:vpn_app/widget/widget.dart';
 // import 'package:vpn_app/Screens/info.dart';
 
@@ -20,6 +21,9 @@ class Navbar extends StatelessWidget {
               children: [
                 SizedBox(
                   height: 40,
+                  child: Icon(
+                    Icons.arrow_back,
+                  ),
                 ),
                 logo(radius1: 50),
                 SizedBox(
@@ -34,12 +38,46 @@ class Navbar extends StatelessWidget {
           ),
           const ListTile(),
           _tile(
-            leadingIcon: const Icon(CupertinoIcons.profile_circled),
-            title: "Key VPN",
+            leadingIcon: const Icon(Icons.credit_card),
+            title: "Upgrade to Premium",
             ontap: () {
               Navigator.of(context).pop();
             },
           ),
+          const SizedBox(
+            height: 10,
+          ),
+          _tile(
+              title: "Server List",
+              leadingIcon: const Icon(Icons.add),
+              ontap: () {}),
+          const SizedBox(
+            height: 10,
+          ),
+          _tile(
+              title: "Rate Us",
+              leadingIcon: const Icon(Icons.star),
+              ontap: () {}),
+          const SizedBox(
+            height: 10,
+          ),
+          _tile(
+              title: "About Us",
+              leadingIcon: const Icon(Icons.info),
+              ontap: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Info(),
+                    ));
+              }),
+          const SizedBox(
+            height: 10,
+          ),
+          _tile(
+              title: "Setting",
+              leadingIcon: const Icon(Icons.settings),
+              ontap: () {})
         ],
       ),
       // appBar: AppBar(
@@ -143,14 +181,16 @@ class _tile extends StatelessWidget {
     return InkWell(
       onTap: ontap,
       child: Container(
-        margin: const EdgeInsets.all(8),
+        margin: const EdgeInsets.symmetric(horizontal: 10),
         decoration: BoxDecoration(
-            color: Colors.cyan.shade200,
-            borderRadius: BorderRadius.circular(15)),
+            color: Colors.amber, borderRadius: BorderRadius.circular(20)),
         child: ListTile(
           leading: leadingIcon,
           trailing: const Icon(Icons.arrow_forward_ios),
-          title: Text(title),
+          title: Text(
+            title,
+            style: const TextStyle(fontSize: 14),
+          ),
         ),
       ),
     );
