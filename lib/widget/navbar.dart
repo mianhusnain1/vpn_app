@@ -13,8 +13,28 @@ class Navbar extends StatelessWidget {
     return Drawer(
       child: ListView(
         children: [
+          Container(
+            height: MediaQuery.of(context).size.height * 0.25,
+            decoration: const BoxDecoration(color: Colors.amber),
+            child: const Column(
+              children: [
+                SizedBox(
+                  height: 40,
+                ),
+                logo(radius1: 50),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  "Key VPN",
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
+                )
+              ],
+            ),
+          ),
+          const ListTile(),
           _tile(
-            leadingIcon: Icon(CupertinoIcons.profile_circled),
+            leadingIcon: const Icon(CupertinoIcons.profile_circled),
             title: "Key VPN",
             ontap: () {
               Navigator.of(context).pop();
@@ -129,7 +149,7 @@ class _tile extends StatelessWidget {
             borderRadius: BorderRadius.circular(15)),
         child: ListTile(
           leading: leadingIcon,
-          trailing: Icon(Icons.arrow_forward_ios),
+          trailing: const Icon(Icons.arrow_forward_ios),
           title: Text(title),
         ),
       ),
