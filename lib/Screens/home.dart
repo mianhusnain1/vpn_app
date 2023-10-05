@@ -114,17 +114,15 @@ class _HomeState extends State<Home> {
                 children: [
                   Container(
                     width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 0.35,
-                    decoration: BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: BorderRadius.circular(500)),
+                    height: MediaQuery.of(context).size.height * 0.23,
+                    decoration: const BoxDecoration(color: Colors.amber),
                   ),
-                  // Container(
-                  //   child: const CircleAvatar(
-                  //     radius: 200,
-                  //     backgroundColor: Colors.amber,
-                  //   ),
-                  // ),
+                  Container(
+                    child: const CircleAvatar(
+                      radius: 200,
+                      backgroundColor: Colors.amber,
+                    ),
+                  ),
                   Container(
                     child: Center(
                       child: Padding(
@@ -183,13 +181,29 @@ class _HomeState extends State<Home> {
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white),
                             )),
-                        Container(
-                          child: Row(
-                            children: [data()],
-                          ),
-                        ),
-                        Container(),
                       ],
+                    ),
+                  ),
+                  Container(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 420.0),
+                      child: const Column(
+                        // crossAxisAlignment: CrossAxisAlignment.center,
+                        // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [data(), data()],
+                          ),
+                          SizedBox(
+                            height: 27,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [data(), data()],
+                          )
+                        ],
+                      ),
                     ),
                   ),
 
@@ -225,7 +239,7 @@ class data extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.13,
       width: MediaQuery.of(context).size.width * 0.4,
       decoration: BoxDecoration(
-          color: Colors.amber.withOpacity(0.7),
+          color: Colors.amber.withOpacity(0.6),
           borderRadius: BorderRadius.circular(15)),
     );
   }
