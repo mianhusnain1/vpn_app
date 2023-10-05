@@ -99,7 +99,7 @@ class Navbar extends StatelessWidget {
                   const Text(
                     "Developed by ",
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 14,
                     ),
                   ),
                   InkWell(
@@ -108,7 +108,7 @@ class Navbar extends StatelessWidget {
                       "Mian Husnain",
                       style: TextStyle(
                           color: Colors.amber,
-                          fontSize: 20,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold),
                     ),
                   )

@@ -114,15 +114,17 @@ class _HomeState extends State<Home> {
                 children: [
                   Container(
                     width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 0.23,
-                    decoration: const BoxDecoration(color: Colors.amber),
+                    height: MediaQuery.of(context).size.height * 0.35,
+                    decoration: BoxDecoration(
+                        color: Colors.amber,
+                        borderRadius: BorderRadius.circular(500)),
                   ),
-                  Container(
-                    child: const CircleAvatar(
-                      radius: 200,
-                      backgroundColor: Colors.amber,
-                    ),
-                  ),
+                  // Container(
+                  //   child: const CircleAvatar(
+                  //     radius: 200,
+                  //     backgroundColor: Colors.amber,
+                  //   ),
+                  // ),
                   Container(
                     child: Center(
                       child: Padding(
@@ -151,10 +153,11 @@ class _HomeState extends State<Home> {
                   Container(
                     child: Center(
                       child: Padding(
-                        padding: EdgeInsets.only(top: 300.0),
+                        padding: const EdgeInsets.only(top: 300.0),
                         child: Text(
                           "$connection",
-                          style: TextStyle(color: Colors.black, fontSize: 25),
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 25),
                         ),
                       ),
                     ),
@@ -180,6 +183,12 @@ class _HomeState extends State<Home> {
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white),
                             )),
+                        Container(
+                          child: Row(
+                            children: [data()],
+                          ),
+                        ),
+                        Container(),
                       ],
                     ),
                   ),
@@ -201,6 +210,23 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class data extends StatelessWidget {
+  const data({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.13,
+      width: MediaQuery.of(context).size.width * 0.4,
+      decoration: BoxDecoration(
+          color: Colors.amber.withOpacity(0.7),
+          borderRadius: BorderRadius.circular(15)),
     );
   }
 }

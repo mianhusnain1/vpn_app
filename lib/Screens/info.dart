@@ -48,58 +48,61 @@ class Info extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30)),
                 child: const Padding(
                   padding: EdgeInsets.all(13.0),
-                  child: Column(
-                    children: [
-                      Text(
-                        "Welcome to our VPN app! We're glad you've chosen to use our service to enhance your online security and privacy. Below, you'll find important information about our app and its features:",
-                        textAlign: TextAlign.justify,
-                        style: TextStyle(
-                          fontSize: 15,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 10.0),
-                        child: Text(
-                          "Secure Connection: ",
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Text(
-                          "We encrypt your internet connection, ensuring that your data is safe from hackers, snoopers, and other threats.",
+                  child: Center(
+                    child: Column(
+                      // mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Welcome to our VPN app! We're glad you've chosen to use our service to enhance your online security and privacy. Below, you'll find important information about our app and its features:",
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                             fontSize: 15,
-                          )),
-                      Padding(
-                        padding: EdgeInsets.only(top: 10.0),
-                        child: Text(
-                          "Anonymous Browsing: ",
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
                         ),
-                      ),
-                      Text(
-                          "With our VPN, you can browse the web anonymously. Your IP address is masked, making it difficult for websites and advertisers to track your online activities.",
-                          textAlign: TextAlign.justify,
-                          style: TextStyle(
-                            fontSize: 15,
-                          )),
-                      Padding(
-                        padding: EdgeInsets.only(top: 10.0),
-                        child: Text(
-                          "Access Blocked Content: ",
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                        Padding(
+                          padding: EdgeInsets.only(top: 10.0),
+                          child: Text(
+                            "Secure Connection: ",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
                         ),
-                      ),
-                      Text(
-                          "Our VPN allows you to access geo-restricted content and websites from anywhere in the world.",
-                          textAlign: TextAlign.justify,
-                          style: TextStyle(
-                            fontSize: 15,
-                          ))
-                    ],
+                        Text(
+                            "We encrypt your internet connection, ensuring that your data is safe from hackers, snoopers, and other threats.",
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(
+                              fontSize: 15,
+                            )),
+                        Padding(
+                          padding: EdgeInsets.only(top: 10.0),
+                          child: Text(
+                            "Anonymous Browsing: ",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Text(
+                            "With our VPN, you can browse the web anonymously. Your IP address is masked, making it difficult for websites and advertisers to track your online activities.",
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(
+                              fontSize: 15,
+                            )),
+                        Padding(
+                          padding: EdgeInsets.only(top: 10.0),
+                          child: Text(
+                            "Access Blocked Content: ",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Text(
+                            "Our VPN allows you to access geo-restricted content and websites from anywhere in the world.",
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(
+                              fontSize: 15,
+                            ))
+                      ],
+                    ),
                   ),
                 ),
               ),
