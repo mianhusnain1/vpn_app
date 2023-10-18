@@ -112,9 +112,9 @@ class _HomeState extends State<Home> {
         await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
 
     if (response.statusCode == 200) {
-      var responsedata = jsonDecode(response.body
+      var data = jsonDecode(response.body
           .toString()); // we use a .tostring function to convert the responce into the string type
-      for (Map<String, dynamic> i in responsedata) {
+      for (Map<String, dynamic> i in data) {
         postList.add(GetModel.fromJson(i));
       }
       return postList;
@@ -253,7 +253,7 @@ class _HomeState extends State<Home> {
                         return ListView.builder(
                             itemCount: postList.length,
                             itemBuilder: (context, index) {
-                              return Text(index.toString());
+                              return Text(postList[index].body.toString());
                             });
                       }
                     }),
