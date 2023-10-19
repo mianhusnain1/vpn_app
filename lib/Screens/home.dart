@@ -185,9 +185,9 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   Container(
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 420.0),
-                      child: const Column(
+                    child: const Padding(
+                      padding: EdgeInsets.only(top: 420.0),
+                      child: Column(
                         // crossAxisAlignment: CrossAxisAlignment.center,
                         // mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
