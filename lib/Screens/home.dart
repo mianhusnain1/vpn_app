@@ -1,8 +1,11 @@
 // ignore_for_file: avoid_unnecessary_containers
 
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:vpn_app/widget/model.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -99,6 +102,25 @@ class _HomeState extends State<Home> {
         hourString = "0$hourString";
       }
     });
+  }
+
+  List<GetModel> postList =
+      []; // we did this because there is no name for the array.
+
+  Future<List<GetModel>> getData() async {
+    final response =
+        await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
+
+    if (response.statusCode == 200) {
+      var responsedata = jsonDecode(response.body
+          .toString()); // we use a .tostring function to convert the responce into the string type
+      for (Map<String, dynamic> i in responsedata) {
+        postList.add(GetModel.fromJson(i));
+      }
+      return postList;
+    } else {
+      return postList;
+    }
   }
 
   @override
@@ -220,7 +242,23 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
-            Container()
+            Container(
+              child: Expanded(
+                child: FutureBuilder(
+                    future: getData(),
+                    builder: (context, snapshot) {
+                      if (!snapshot.hasData) {
+                        return Text('Loading');
+                      } else {
+                        return ListView.builder(
+                            itemCount: postList.length,
+                            itemBuilder: (context, index) {
+                              return Text(index.toString());
+                            });
+                      }
+                    }),
+              ),
+            )
           ],
         ),
       ),
