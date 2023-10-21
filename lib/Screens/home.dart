@@ -196,6 +196,7 @@ class _HomeState extends State<Home> {
                     child: Image.asset("images/map.jpg"),
                   ),
                   Container(),
+                  Container(),
                   Container(
                     child: Column(
                       children: [
@@ -227,6 +228,11 @@ class _HomeState extends State<Home> {
                           ),
                           SizedBox(
                             height: 27,
+                          ),
+                          
+                          SizedBox(
+                            height: 28,
+                            
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
