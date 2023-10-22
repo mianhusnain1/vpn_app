@@ -234,9 +234,7 @@ class _HomeState extends State<Home> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [data(), data(), ],
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                          ),
+                          
                         ],
                       ),
                     ),
