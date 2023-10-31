@@ -232,7 +232,7 @@ class _HomeState extends State<Home> {
                                                   
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [data(), data() ],
+                            children: [data(), data(), data() ],
                           ),
                         ],
                       ),
