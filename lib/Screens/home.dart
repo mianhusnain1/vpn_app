@@ -195,6 +195,7 @@ class _HomeState extends State<Home> {
                     
                     child: Image.asset("images/map.jpg"),
                   ),
+                  Container(),
                   Container(
                     child: Column(
                       children: [
