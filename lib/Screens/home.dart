@@ -192,7 +192,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.1,
+                    
                     child: Image.asset("images/map.jpg"),
                   ),
                   Container(
@@ -229,7 +229,7 @@ class _HomeState extends State<Home> {
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [data(), data()],
+                            children: [data(), data(), data()],
                           )
                         ],
                       ),
@@ -249,6 +249,7 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
+            Container(),
             Container(
               child: Expanded(
                 child: FutureBuilder(
