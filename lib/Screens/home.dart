@@ -135,20 +135,29 @@ class _HomeState extends State<Home> {
               child: Stack(
                 children: [
                   Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 0.23,
-                    decoration: const BoxDecoration(color: Colors.amber),
-                  ),
-                  Container(
-                    child: const CircleAvatar(
-                      radius: 200,
-                      backgroundColor: Colors.amber,
+                    width:  MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 0.4,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(200), bottomRight: Radius.circular(200) ),
+                      color: Colors.amber
                     ),
+                    
                   ),
+                  // Container(
+                  //   width: MediaQuery.of(context).size.width,
+                  //   height: MediaQuery.of(context).size.height * 0.23,
+                  //   decoration: const BoxDecoration(color: Colors.amber),
+                  // ),
+                  // Container(
+                  //   child: const CircleAvatar(
+                  //     radius: 200,
+                  //     backgroundColor: Colors.amber,
+                  //   ),
+                  // ),
                   Container(
                     child: Center(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 100.0),
+                        padding: const EdgeInsets.only(top: 60.0),
                         child: InkWell(
                           onTap: () {
                             _startTimer();
@@ -173,7 +182,7 @@ class _HomeState extends State<Home> {
                   Container(
                     child: Center(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 300.0),
+                        padding: const EdgeInsets.only(top: 320.0),
                         child: Text(
                           "$connection",
                           style: const TextStyle(
@@ -183,10 +192,8 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   Container(
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 430.0),
-                      child: Image.asset("images/map.jpg"),
-                    ),
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    child: Image.asset("images/map.jpg"),
                   ),
                   Container(
                     child: Column(
