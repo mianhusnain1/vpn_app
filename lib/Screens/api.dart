@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:csv/csv.dart';
@@ -17,7 +18,8 @@ for(int i = 0; i < header.length; i ++ ) {
 }
 
 // once the csv data is converted to the list there will be 1 header list and multiple data list in that list.
-log(tempjson.toString());
+// log(tempjson.toString());
+log(jsonEncode(tempjson));
 //  log(response.body) ;
   }
 }
