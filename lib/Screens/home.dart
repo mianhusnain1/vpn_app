@@ -228,8 +228,10 @@ class _HomeState extends State<Home> {
                           ),
                           SizedBox(
                             height: 27,
+                            
                           ),
-                                                  
+
+
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [   data(), data() ],
