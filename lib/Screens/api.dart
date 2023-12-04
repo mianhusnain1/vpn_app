@@ -7,7 +7,7 @@ import 'package:http/http.dart';
 class APIs {
   static Future<void> getVPNServer () async{
 final response = await get(Uri.parse('https://www.vpngate.net/api/iphone/'));
-final csvstring = response.body.split("#")[1].replaceAll("*", " ");
+final csvstring = response.body.split('#')[1].replaceAll('*', ' ');
 List<List<dynamic>> list = const CsvToListConverter().convert(csvstring);
 
 final header = list[0];
@@ -20,6 +20,7 @@ for(int i = 0; i < header.length; i ++ ) {
 // once the csv data is converted to the list there will be 1 header list and multiple data list in that list.
 // log(tempjson.toString());
 log(jsonEncode(tempjson));
+print(tempjson);
 //  log(response.body) ;
   }
 }
