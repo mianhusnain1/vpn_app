@@ -19,8 +19,6 @@ for(int i = 0; i < header.length; i ++ ) {
 
 // once the csv data is converted to the list there will be 1 header list and multiple data list in that list.
 // log(tempjson.toString());
-log(jsonEncode(tempjson));
-print(tempjson);
-//  log(response.body) ;
+log(jsonEncode(tempjson));//  log(response.body) ;
   }
 }
