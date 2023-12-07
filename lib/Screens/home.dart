@@ -137,7 +137,7 @@ class _HomeState extends State<Home> {
                   Container(
                     width:  MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height * 0.4,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(bottomLeft: Radius.circular(200), bottomRight: Radius.circular(200) ),
                       color: Colors.amber
                     ),
