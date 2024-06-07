@@ -109,8 +109,10 @@ class VpnCard extends StatelessWidget {
             children: [
               Text(
                 vpn.numVpnSessions.toString(),
-                style:
-                    const TextStyle(fontWeight: FontWeight.w400, fontSize: 13),
+                style: const TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 13,
+                    color: Colors.black54),
               ),
               const SizedBox(),
               const Icon(
