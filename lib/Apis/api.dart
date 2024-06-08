@@ -26,7 +26,7 @@ class API {
       log(vpnlist.first.hostname);
     } catch (e) {
       // TODO
-      print("Error: $e");
+      log("Error: $e");
     }
   }
 }

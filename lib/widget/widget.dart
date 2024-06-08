@@ -157,7 +157,7 @@ loadingwidget(BuildContext context, String text, String assets) => SizedBox(
           ),
           Text(
             text,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Colors.amber, fontSize: 20, fontWeight: FontWeight.w500),
           )
         ],
