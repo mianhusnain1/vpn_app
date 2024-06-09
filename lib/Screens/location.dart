@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:vpn_app/Model/Apimodel.dart';
 import 'package:vpn_app/controllers/location_controller.dart';
 import 'package:vpn_app/widget/widget.dart';
 
@@ -66,53 +67,43 @@ class _LocationState extends State<Location> {
   _VpnData() {
     return ListView.builder(
         itemCount: _controller.list.length,
-        itemBuilder: (context, i) => Column(
-              children: [
-                Container(
-                  child: Text("Now ${_controller.list.length} are available."),
-                ),
-                _vpntile(
-                    title: _controller.list[i].hostname,
-                    leadingIcon: Icon(Icons.person),
-                    ontap: () {})
-              ],
-            )
+        itemBuilder: (context, i) => VpnCard(vpn: _controller.list[i])
         //  ListTile(
         //       title: Text(_controller.list[i].hostname),)
         );
   }
 }
 
-class _vpntile extends StatelessWidget {
-  const _vpntile({
-    super.key,
-    required this.title,
-    required this.leadingIcon,
-    required this.ontap,
-  });
-  final String title;
-  final Icon leadingIcon;
-  final VoidCallback ontap;
+class VpnCard extends StatelessWidget {
+  final Vpn vpn;
+  const VpnCard({super.key, required this.vpn});
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: ontap,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10),
-        child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 10),
-          decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 255, 212, 83),
-              borderRadius: BorderRadius.circular(20)),
-          child: ListTile(
-            leading: leadingIcon,
-            trailing: const Icon(Icons.arrow_forward_ios),
-            title: Text(
-              title,
-              style: const TextStyle(fontSize: 14),
+    return Card(
+      elevation: 5,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      child: ListTile(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        trailing: const Icon(Icons.arrow_forward_ios),
+        title: Text(
+          vpn.countryLong,
+        ),
+        subtitle: Row(
+          children: [
+            const Icon(
+              Icons.speed_rounded,
+              color: Colors.blue,
+              size: 20,
             ),
-          ),
+            const SizedBox(
+              height: 4,
+            ),
+            Text(
+              vpn.speed.toString(),
+              style: TextStyle(fontSize: 13),
+            )
+          ],
         ),
       ),
     );
