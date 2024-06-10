@@ -248,14 +248,14 @@ class _HomeState extends State<Home> {
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [data(), data()],
+                          children: [_data(), _data()],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 27,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [data(), data()],
+                          children: [_data(), _data()],
                         ),
                       ],
                     ),
@@ -269,7 +269,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  data() {
+  _data() {
     return Container(
       height: MediaQuery.of(context).size.height * 0.13,
       width: MediaQuery.of(context).size.width * 0.4,
