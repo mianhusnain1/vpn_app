@@ -84,28 +84,37 @@ class VpnCard extends StatelessWidget {
       elevation: 5,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: ListTile(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        trailing: const Icon(Icons.arrow_forward_ios),
-        title: Text(
-          vpn.countryLong,
-        ),
-        subtitle: Row(
-          children: [
-            const Icon(
-              Icons.speed_rounded,
-              color: Colors.blue,
-              size: 20,
-            ),
-            const SizedBox(
-              height: 4,
-            ),
-            Text(
-              vpn.speed.toString(),
-              style: TextStyle(fontSize: 13),
-            )
-          ],
-        ),
-      ),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+          title: Text(
+            vpn.countryLong,
+          ),
+          subtitle: Row(
+            children: [
+              const Icon(
+                Icons.speed_rounded,
+                color: Colors.blue,
+                size: 20,
+              ),
+              const SizedBox(
+                height: 4,
+              ),
+              Text(
+                vpn.speed.toString(),
+                style: TextStyle(fontSize: 13),
+              ),
+            ],
+          ),
+          trailing: Row(
+            children: [
+              Text(vpn.numVpnSessions.toString()),
+              SizedBox(),
+              Icon(
+                Icons.person_3,
+                color: Colors.blue,
+              )
+            ],
+          )),
     );
   }
 }
