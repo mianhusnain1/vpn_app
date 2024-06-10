@@ -101,15 +101,19 @@ class VpnCard extends StatelessWidget {
               ),
               Text(
                 vpn.speed.toString(),
-                style: TextStyle(fontSize: 13),
+                style: const TextStyle(fontSize: 13),
               ),
             ],
           ),
           trailing: Row(
             children: [
-              Text(vpn.numVpnSessions.toString()),
-              SizedBox(),
-              Icon(
+              Text(
+                vpn.numVpnSessions.toString(),
+                style:
+                    const TextStyle(fontWeight: FontWeight.w400, fontSize: 13),
+              ),
+              const SizedBox(),
+              const Icon(
                 Icons.person_3,
                 color: Colors.blue,
               )
