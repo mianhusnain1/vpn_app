@@ -36,6 +36,6 @@ class _LocationState extends State<Location> {
                 ]),
               )
             : loadingwidget(
-                context, "servers", "assets/lottie/AnimationServers.json"));
+                context, "", "assets/lottie/AnimationServers.json"));
   }
 }
