@@ -13,7 +13,7 @@ class Setting extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(),
           child: Image.asset(
-            "images/map.jpg",
+            "assets/images/map.jpg",
           ),
           // width: MediaQuery.of(context).size.width,
         ),

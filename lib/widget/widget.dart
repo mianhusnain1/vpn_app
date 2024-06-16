@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// ignore: depend_on_referenced_packages
+import 'package:lottie/lottie.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:vpn_app/Screens/home.dart';
 import 'package:vpn_app/Screens/setting.dart';
@@ -145,3 +145,21 @@ class logo extends StatelessWidget {
     );
   }
 }
+
+loadingwidget(BuildContext context, String text, String assets) => SizedBox(
+      height: double.infinity,
+      width: double.infinity,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          LottieBuilder.asset(
+            assets,
+          ),
+          Text(
+            text,
+            style: TextStyle(
+                color: Colors.amber, fontSize: 20, fontWeight: FontWeight.w500),
+          )
+        ],
+      ),
+    );
