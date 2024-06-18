@@ -4,6 +4,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:vpn_app/widget/model.dart';
 
@@ -135,13 +136,13 @@ class _HomeState extends State<Home> {
               child: Stack(
                 children: [
                   Container(
-                    width:  MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 0.4,
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 0.3,
                     decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(200), bottomRight: Radius.circular(200) ),
-                      color: Colors.amber
-                    ),
-                    
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(50),
+                            bottomRight: Radius.circular(50)),
+                        color: Colors.amber),
                   ),
                   // Container(
                   //   width: MediaQuery.of(context).size.width,
@@ -154,37 +155,41 @@ class _HomeState extends State<Home> {
                   //     backgroundColor: Colors.amber,
                   //   ),
                   // ),
-                  Container(
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 60.0),
+                  Positioned(
+                    top: 50,
+                    left: 115,
+                    child: Container(
+                      child: Center(
                         child: InkWell(
-                          onTap: () {
-                            _startTimer();
-                            _connection();
-                            print("Hello");
-                            if (_isConnected == false) {
-                              print('Connected');
-                            } else {
-                              print('Disconnected');
-                            }
-                          },
-                          
-                          child: const Stack(
-                            children: [
-                              CircleAvatar(
-                               radius:  80,
-                               
-                               backgroundColor: Colors.grey,
-                              ),
-                              CircleAvatar(
-                            radius: 70,
-                            backgroundColor: Colors.blue,
-                           child: Text("Connect", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),),
-                          ),
-                            ],
-                          )
-                        ),
+                            onTap: () {
+                              _startTimer();
+                              _connection();
+                              print("Hello");
+                              if (_isConnected == false) {
+                                print('Connected');
+                              } else {
+                                print('Disconnected');
+                              }
+                            },
+                            child: const Stack(
+                              children: [
+                                CircleAvatar(
+                                  radius: 80,
+                                  backgroundColor: Colors.grey,
+                                ),
+                                CircleAvatar(
+                                  radius: 70,
+                                  backgroundColor: Colors.blue,
+                                  child: Text(
+                                    "Connect",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                                  ),
+                                ),
+                              ],
+                            )),
                       ),
                     ),
                   ),
@@ -192,7 +197,7 @@ class _HomeState extends State<Home> {
                     height: MediaQuery.of(context).size.height,
                     // width: MediaQuery.of(context).size.width,
                     child: FittedBox(
-                      fit: BoxFit.contain, // Adjust this to your needs
+                      fit: BoxFit.scaleDown, // Adjust this to your needs
                       child: Image.asset(
                         "images/map.jpg",
                       ),
@@ -201,7 +206,7 @@ class _HomeState extends State<Home> {
                   Container(
                     child: Center(
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 320.0),
+                        padding: const EdgeInsets.only(top: 210.0),
                         child: Text(
                           "$connection",
                           style: const TextStyle(
@@ -210,17 +215,12 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                   ),
-                  // Container(
-                    
-                  //   child: Image.asset("images/map.jpg"),
-                  // ),
-                  Container(),
-                  Container(),
+
                   Container(
                     child: Column(
                       children: [
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.4,
+                          height: MediaQuery.of(context).size.height * 0.3,
                         ),
                         Container(
                             alignment: Alignment.center,
@@ -229,14 +229,14 @@ class _HomeState extends State<Home> {
                               style: const TextStyle(
                                   fontSize: 22,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white),
+                                  color: Color.fromARGB(255, 255, 31, 31)),
                             )),
                       ],
                     ),
                   ),
                   Container(
                     child: const Padding(
-                      padding: EdgeInsets.only(top: 420.0),
+                      padding: EdgeInsets.only(top: 320.0),
                       child: Column(
                         // crossAxisAlignment: CrossAxisAlignment.center,
                         // mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -247,41 +247,35 @@ class _HomeState extends State<Home> {
                           ),
                           SizedBox(
                             height: 27,
-                            
                           ),
-
-
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [   data(), data() ],
+                            children: [data(), data()],
                           ),
                         ],
                       ),
                     ),
                   ),
-
-                  
                 ],
               ),
             ),
-            Container(),
-            Container(
-              child: Expanded(
-                child: FutureBuilder(
-                    future: getData(),
-                    builder: (context, snapshot) {
-                      if (!snapshot.hasData) {
-                        return Text('Loading');
-                      } else {
-                        return ListView.builder(
-                            itemCount: postList.length,
-                            itemBuilder: (context, index) {
-                              return Text(postList[index].body.toString());
-                            });
-                      }
-                    }),
-              ),
-            )
+            // Container(
+            //   child: Expanded(
+            //     child: FutureBuilder(
+            //         future: getData(),
+            //         builder: (context, snapshot) {
+            //           if (!snapshot.hasData) {
+            //             return Text('Loading');
+            //           } else {
+            //             return ListView.builder(
+            //                 itemCount: postList.length,
+            //                 itemBuilder: (context, index) {
+            //                   return Text(postList[index].body.toString());
+            //                 });
+            //           }
+            //         }),
+            //   ),
+            // )
           ],
         ),
       ),

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:vpn_app/Screens/favorite.dart';
-// import 'package:vpn_app/Screens/home.dart';
+
 import 'package:vpn_app/Screens/home.dart';
+import 'package:vpn_app/Screens/location.dart';
 import 'package:vpn_app/Screens/setting.dart';
 // import 'package:vpn_app/Screens/splashscreen.dart';
 
@@ -17,7 +16,7 @@ class _BottombarState extends State<Bottombar> {
   int _currentIndex = 1;
 
   final List<Widget> _pages = [
-    const Favorite(),
+    const Location(),
     const Home(),
     const Setting()
     // Replace these with your actual screens
@@ -48,9 +47,9 @@ class _BottombarState extends State<Bottombar> {
             items: const [
               BottomNavigationBarItem(
                   icon: Icon(
-                    Icons.favorite,
+                    Icons.map,
                   ),
-                  label: "Favorite"),
+                  label: "Server"),
               BottomNavigationBarItem(
                   icon: Icon(
                     Icons.home,
