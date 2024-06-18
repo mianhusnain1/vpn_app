@@ -169,13 +169,32 @@ class _HomeState extends State<Home> {
                               print('Disconnected');
                             }
                           },
-                          child: const CircleAvatar(
-                            radius: 90,
-                            backgroundImage: AssetImage(
-                              "images/button.png",
-                            ),
+                          
+                          child: const Stack(
+                            children: [
+                              CircleAvatar(
+                               radius:  80,
+                               
+                               backgroundColor: Colors.grey,
+                              ),
+                              CircleAvatar(
+                            radius: 70,
+                            backgroundColor: Colors.blue,
+                           child: Text("Connect", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),),
                           ),
+                            ],
+                          )
                         ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    height: MediaQuery.of(context).size.height,
+                    // width: MediaQuery.of(context).size.width,
+                    child: FittedBox(
+                      fit: BoxFit.contain, // Adjust this to your needs
+                      child: Image.asset(
+                        "images/map.jpg",
                       ),
                     ),
                   ),
@@ -191,10 +210,10 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                   ),
-                  Container(
+                  // Container(
                     
-                    child: Image.asset("images/map.jpg"),
-                  ),
+                  //   child: Image.asset("images/map.jpg"),
+                  // ),
                   Container(),
                   Container(),
                   Container(
@@ -241,16 +260,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
 
-                  // Container(
-                  //   height: MediaQuery.of(context).size.height,
-                  //   // width: MediaQuery.of(context).size.width,
-                  //   child: FittedBox(
-                  //     fit: BoxFit.contain, // Adjust this to your needs
-                  //     child: Image.asset(
-                  //       "images/map.jpg",
-                  //     ),
-                  //   ),
-                  // ),
+                  
                 ],
               ),
             ),

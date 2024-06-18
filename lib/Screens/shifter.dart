@@ -33,7 +33,7 @@ class Shifter extends StatelessWidget {
         titleTextStyle: const TextStyle(
           color: Color.fromARGB(255, 0, 10, 19),
           fontSize: 25,
-          fontWeight: FontWeight.w300,
+          fontWeight: FontWeight.w500,
         ),
         backgroundColor: Colors.amber,
         // title: Text(

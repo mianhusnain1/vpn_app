@@ -8,6 +8,7 @@ import 'package:vpn_app/widget/widget.dart';
 
 // import 'package:vpn_app/main.dart';
 
+
 class Splash extends StatefulWidget {
   const Splash({super.key});
 
@@ -19,6 +20,7 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
+    
     Timer(const Duration(seconds: 3), () {
       Navigator.push(
           context,
@@ -42,7 +44,7 @@ class _SplashState extends State<Splash> {
                 height: 300,
               ),
 
-              logo(radius1: 80),
+              logo(radius1: 80), // here we called the logo
               // ignore: prefer_const_constructors
               SizedBox(
                 height: 20,
