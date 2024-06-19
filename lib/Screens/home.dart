@@ -3,9 +3,7 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:vpn_app/widget/model.dart';
 
@@ -19,7 +17,6 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     // _startTimer();
   }
@@ -106,9 +103,7 @@ class _HomeState extends State<Home> {
     });
   }
 
-  List<GetModel> postList =
-      []; // we did this because there is no name for the array.
-
+  List<GetModel> postList = [];
   Future<List<GetModel>> getData() async {
     final response =
         await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
@@ -144,7 +139,7 @@ class _HomeState extends State<Home> {
                             future: getData(),
                             builder: (context, snapshot) {
                               if (!snapshot.hasData) {
-                                return Text('Loading');
+                                return const Text('Loading');
                               } else {
                                 return ListView.builder(
                                     itemCount: postList.length,
