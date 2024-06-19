@@ -3,6 +3,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
@@ -135,6 +136,27 @@ class _HomeState extends State<Home> {
             Container(
               child: Stack(
                 children: [
+                  Positioned(
+                    bottom: 10,
+                    child: Container(
+                      child: Expanded(
+                        child: FutureBuilder(
+                            future: getData(),
+                            builder: (context, snapshot) {
+                              if (!snapshot.hasData) {
+                                return Text('Loading');
+                              } else {
+                                return ListView.builder(
+                                    itemCount: postList.length,
+                                    itemBuilder: (context, index) {
+                                      return Text(
+                                          postList[index].body.toString());
+                                    });
+                              }
+                            }),
+                      ),
+                    ),
+                  ),
                   Container(
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height * 0.3,
@@ -144,17 +166,6 @@ class _HomeState extends State<Home> {
                             bottomRight: Radius.circular(50)),
                         color: Colors.amber),
                   ),
-                  // Container(
-                  //   width: MediaQuery.of(context).size.width,
-                  //   height: MediaQuery.of(context).size.height * 0.23,
-                  //   decoration: const BoxDecoration(color: Colors.amber),
-                  // ),
-                  // Container(
-                  //   child: const CircleAvatar(
-                  //     radius: 200,
-                  //     backgroundColor: Colors.amber,
-                  //   ),
-                  // ),
                   Positioned(
                     top: 50,
                     left: 115,
@@ -181,7 +192,7 @@ class _HomeState extends State<Home> {
                                   radius: 70,
                                   backgroundColor: Colors.blue,
                                   child: Text(
-                                    "Connect",
+                                    "Connect1",
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
@@ -190,16 +201,6 @@ class _HomeState extends State<Home> {
                                 ),
                               ],
                             )),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: MediaQuery.of(context).size.height,
-                    // width: MediaQuery.of(context).size.width,
-                    child: FittedBox(
-                      fit: BoxFit.scaleDown, // Adjust this to your needs
-                      child: Image.asset(
-                        "images/map.jpg",
                       ),
                     ),
                   ),
@@ -215,7 +216,6 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                   ),
-
                   Container(
                     child: Column(
                       children: [
@@ -259,23 +259,6 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
-            // Container(
-            //   child: Expanded(
-            //     child: FutureBuilder(
-            //         future: getData(),
-            //         builder: (context, snapshot) {
-            //           if (!snapshot.hasData) {
-            //             return Text('Loading');
-            //           } else {
-            //             return ListView.builder(
-            //                 itemCount: postList.length,
-            //                 itemBuilder: (context, index) {
-            //                   return Text(postList[index].body.toString());
-            //                 });
-            //           }
-            //         }),
-            //   ),
-            // )
           ],
         ),
       ),
