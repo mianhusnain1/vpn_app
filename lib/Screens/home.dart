@@ -2,7 +2,6 @@
 
 import 'dart:async';
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:vpn_app/widget/model.dart';
@@ -139,7 +138,7 @@ class _HomeState extends State<Home> {
                             future: getData(),
                             builder: (context, snapshot) {
                               if (!snapshot.hasData) {
-                                return const Text('Loading');
+                                return const Text('Loading1');
                               } else {
                                 return ListView.builder(
                                     itemCount: postList.length,
@@ -161,41 +160,56 @@ class _HomeState extends State<Home> {
                             bottomRight: Radius.circular(50)),
                         color: Colors.amber),
                   ),
-                  Positioned(
-                    top: 50,
-                    left: 115,
-                    child: Container(
-                      child: Center(
-                        child: InkWell(
-                            onTap: () {
-                              _startTimer();
-                              _connection();
-                              print("Hello");
-                              if (_isConnected == false) {
-                                print('Connected');
-                              } else {
-                                print('Disconnected');
-                              }
-                            },
-                            child: const Stack(
-                              children: [
-                                CircleAvatar(
-                                  radius: 80,
-                                  backgroundColor: Colors.grey,
-                                ),
-                                CircleAvatar(
-                                  radius: 70,
-                                  backgroundColor: Colors.blue,
-                                  child: Text(
-                                    "Connect1",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20),
+                  Center(
+                    child: Positioned(
+                      top: 20,
+                      child: Container(
+                        child: Center(
+                          child: InkWell(
+                              onTap: () {
+                                _startTimer();
+                                _connection();
+                                print("Hello");
+                                if (_isConnected == false) {
+                                  print('Connected');
+                                } else {
+                                  print('Disconnected');
+                                }
+                              },
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  CircleAvatar(
+                                    radius: 100,
+                                    backgroundColor: _isConnected
+                                        ? Colors.green.withOpacity(0.5)
+                                        : const Color.fromARGB(
+                                                255, 130, 191, 241)
+                                            .withOpacity(0.8),
                                   ),
-                                ),
-                              ],
-                            )),
+                                  CircleAvatar(
+                                      radius: 85,
+                                      backgroundColor: _isConnected
+                                          ? Colors.green.withOpacity(0.5)
+                                          : const Color.fromARGB(
+                                                  255, 100, 181, 247)
+                                              .withOpacity(0.8)),
+                                  CircleAvatar(
+                                    radius: 70,
+                                    backgroundColor: _isConnected
+                                        ? Colors.green
+                                        : Colors.blue,
+                                    child: Text(
+                                      _isConnected ? "Connected" : "Connect",
+                                      style: const TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20),
+                                    ),
+                                  ),
+                                ],
+                              )),
+                        ),
                       ),
                     ),
                   ),
