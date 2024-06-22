@@ -1,3 +1,14 @@
-import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:get/get.dart';
+import 'package:vpn_app/Apis/api.dart';
+import 'package:vpn_app/Model/Apimodel.dart';
 
-class LocationController extends GetxController {}
+class LocationController extends GetxController {
+  List<Vpn> list = [];
+  final RxBool isLoading =
+      false.obs; // rxboolean allow you to create reactive bool
+  Future<void> getVpnData() async {
+    isLoading.value = true;
+    list = await API.getVpnServer();
+    isLoading.value = false;
+  }
+}

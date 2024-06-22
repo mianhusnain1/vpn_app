@@ -141,14 +141,14 @@ class _HomeState extends State<Home> {
                               if (snapshot.hasData) {
                                 return const Text('Loading1');
                               } else {
-                                return const Text("data");
+                                // return const Text("data");
 
-                                // return ListView.builder(
-                                //     itemCount: postList.length,
-                                //     itemBuilder: (context, index) {
-                                //       return Text(
-                                //           postList[index].body.toString());
-                                //     });
+                                return ListView.builder(
+                                    itemCount: postList.length,
+                                    itemBuilder: (context, index) {
+                                      return Text(
+                                          postList[index].body.toString());
+                                    });
                               }
                             }),
                       ),
@@ -278,7 +278,7 @@ class _HomeState extends State<Home> {
                     child: Image.asset("assets/images/map.jpg"),
                   ),
                   Container(
-                    child: const Column(
+                    child: Column(
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -302,15 +302,8 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-}
 
-class data extends StatelessWidget {
-  const data({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
+  data() {
     return Container(
       height: MediaQuery.of(context).size.height * 0.13,
       width: MediaQuery.of(context).size.width * 0.4,

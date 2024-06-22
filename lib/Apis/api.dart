@@ -1,32 +1,33 @@
 import 'dart:developer';
 import 'package:csv/csv.dart';
-import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 import 'package:vpn_app/Model/Apimodel.dart';
 
 class API {
-  static Future<void> getVpnServer() async {
+  static Future<List<Vpn>> getVpnServer() async {
+    final List<Vpn> vpnlist = [];
     try {
-      final List<Vpn> vpnlist = [];
       final response =
-          await get(Uri.parse('https://www.vpngate.net/api/iphone/'));
+          await http.get(Uri.parse('https://www.vpngate.net/api/iphone/'));
       log(response.body);
+
+      // Assuming CSV data starts after the '#' and '*' are replaced with spaces
       final csvstring = response.body.split('#')[1].replaceAll('*', ' ');
       List<List<dynamic>> list = const CsvToListConverter().convert(csvstring);
       final header = list[0];
 
-      // as the  0 index is the 1st list and the 1st list is always the header or title.
-      for (int i = 0; i < header.length; ++i) {
+      for (int i = 1; i < list.length; ++i) {
         Map<String, dynamic> tempJson = {};
         for (int j = 0; j < header.length; ++j) {
           tempJson.addAll({header[j].toString(): list[i][j]});
         }
         vpnlist.add(Vpn.fromJson(tempJson));
-        // here i will mention all the enteries that I want to add in the tempjson variable. Json is always start and end at the {}
       }
-      log(vpnlist.first.hostname);
+
+      log("First VPN hostname: ${vpnlist.isNotEmpty ? vpnlist.first.hostname : 'No VPN servers'}");
     } catch (e) {
-      // TODO
       log("Error: $e");
     }
+    return vpnlist;
   }
 }

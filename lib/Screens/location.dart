@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-
-import 'package:vpn_app/Apis/api.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:vpn_app/controllers/location_controller.dart';
 import 'package:vpn_app/widget/widget.dart';
 
 class Location extends StatefulWidget {
@@ -11,31 +13,60 @@ class Location extends StatefulWidget {
 }
 
 class _LocationState extends State<Location> {
+  final _controller = LocationController();
+
   @override
-  bool _location = false;
   void initState() {
-    API.getVpnServer();
-    // TODO: implement initState
     super.initState();
+    _controller.getVpnData();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        body: _location
-            ? Center(
-                child: Stack(children: [
-                  Container(
-                    decoration: const BoxDecoration(),
-                    child: Image.asset(
-                      "assets/images/map.jpg",
-                    ),
-                    // width: MediaQuery.of(context).size.width,
-                  ),
-                ]),
-              )
-            : loadingwidget(
-                context, "", "assets/lottie/AnimationServers.json"));
+        body: Obx(() => _controller.isLoading.value
+            ? loadingwidget(context, "", "assets/lottie/AnimationServers.json")
+            : _controller.list.isEmpty
+                ? _empty(context)
+                : _VpnData()));
+  }
+
+  _empty(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SvgPicture.asset(
+            "assets/images/nothing.svg",
+            theme: SvgTheme(currentColor: Colors.amber),
+            width: MediaQuery.of(context).size.width * 0.2,
+          ),
+          const SizedBox(
+            height: 1,
+          ),
+          const Text(
+            "Unfortunately, No VPN Found!",
+            style: TextStyle(
+                fontSize: 20, fontWeight: FontWeight.w500, color: Colors.grey),
+          )
+        ],
+      ),
+    );
+  }
+
+// ignore: non_constant_identifier_names
+  _VpnData() {
+    return ListView.builder(
+        itemCount: _controller.list.length,
+        itemBuilder: (context, i) => ListTile(
+              title: Text(_controller.list[i].hostname),
+            ));
   }
 }
