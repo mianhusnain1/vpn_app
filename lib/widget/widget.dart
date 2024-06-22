@@ -140,7 +140,7 @@ class logo extends StatelessWidget {
     return SizedBox(
       child: CircleAvatar(
         radius: doubleValue,
-        backgroundImage: AssetImage("images/logo.png"),
+        backgroundImage: AssetImage("assets/images/logo.png"),
       ),
     );
   }

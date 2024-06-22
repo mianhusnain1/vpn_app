@@ -25,7 +25,7 @@ class _LocationState extends State<Location> {
           Container(
             decoration: BoxDecoration(),
             child: Image.asset(
-              "images/map.jpg",
+              "assets/images/map.jpg",
             ),
             // width: MediaQuery.of(context).size.width,
           ),

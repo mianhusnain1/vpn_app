@@ -3,6 +3,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:vpn_app/widget/model.dart';
 
@@ -137,15 +138,17 @@ class _HomeState extends State<Home> {
                         child: FutureBuilder(
                             future: getData(),
                             builder: (context, snapshot) {
-                              if (!snapshot.hasData) {
+                              if (snapshot.hasData) {
                                 return const Text('Loading1');
                               } else {
-                                return ListView.builder(
-                                    itemCount: postList.length,
-                                    itemBuilder: (context, index) {
-                                      return Text(
-                                          postList[index].body.toString());
-                                    });
+                                return const Text("data");
+
+                                // return ListView.builder(
+                                //     itemCount: postList.length,
+                                //     itemBuilder: (context, index) {
+                                //       return Text(
+                                //           postList[index].body.toString());
+                                //     });
                               }
                             }),
                       ),
@@ -153,7 +156,7 @@ class _HomeState extends State<Home> {
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 0.3,
+                    height: MediaQuery.of(context).size.height * 0.4,
                     decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(50),
@@ -207,6 +210,15 @@ class _HomeState extends State<Home> {
                                           fontSize: 20),
                                     ),
                                   ),
+                                  CircleAvatar(
+                                    radius: 70,
+                                    child: ClipRRect(
+                                      child: Image.asset(
+                                        "assets/images/button.png",
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  )
                                 ],
                               )),
                         ),
@@ -218,9 +230,19 @@ class _HomeState extends State<Home> {
                       child: Padding(
                         padding: const EdgeInsets.only(top: 210.0),
                         child: Text(
-                          "$connection",
+                          _isConnected ? "Connected" : "Connect",
                           style: const TextStyle(
-                              color: Colors.black, fontSize: 25),
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              fontSize: 25,
+                              fontWeight: FontWeight.w700,
+                              shadows: [
+                                BoxShadow(
+                                    color: Colors.grey,
+                                    offset: Offset(0, 0),
+                                    blurRadius: 10,
+                                    spreadRadius: 20,
+                                    blurStyle: BlurStyle.outer)
+                              ]),
                         ),
                       ),
                     ),
@@ -234,35 +256,42 @@ class _HomeState extends State<Home> {
                         Container(
                             alignment: Alignment.center,
                             child: Text(
-                              "$hourString : $minuteString : $secondString",
+                              _isConnected
+                                  ? "$hourString : $minuteString : $secondString"
+                                  : "",
                               style: const TextStyle(
                                   fontSize: 22,
                                   fontWeight: FontWeight.bold,
-                                  color: Color.fromARGB(255, 255, 31, 31)),
+                                  color: Color.fromARGB(255, 255, 255, 255)),
                             )),
                       ],
                     ),
                   ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 40.0),
+              child: Stack(
+                children: [
                   Container(
-                    child: const Padding(
-                      padding: EdgeInsets.only(top: 320.0),
-                      child: Column(
-                        // crossAxisAlignment: CrossAxisAlignment.center,
-                        // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [data(), data()],
-                          ),
-                          SizedBox(
-                            height: 27,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [data(), data()],
-                          ),
-                        ],
-                      ),
+                    child: Image.asset("assets/images/map.jpg"),
+                  ),
+                  Container(
+                    child: const Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [data(), data()],
+                        ),
+                        SizedBox(
+                          height: 27,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [data(), data()],
+                        ),
+                      ],
                     ),
                   ),
                 ],
