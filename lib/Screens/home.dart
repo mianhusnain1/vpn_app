@@ -103,22 +103,7 @@ class _HomeState extends State<Home> {
     });
   }
 
-  List<GetModel> postList = [];
-  Future<List<GetModel>> getData() async {
-    final response =
-        await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
-
-    if (response.statusCode == 200) {
-      var data = jsonDecode(response.body
-          .toString()); // we use a .tostring function to convert the responce into the string type
-      for (Map<String, dynamic> i in data) {
-        postList.add(GetModel.fromJson(i));
-      }
-      return postList;
-    } else {
-      return postList;
-    }
-  }
+  //
 
   @override
   Widget build(BuildContext context) {
@@ -133,26 +118,7 @@ class _HomeState extends State<Home> {
                 children: [
                   Positioned(
                     bottom: 10,
-                    child: Container(
-                      child: Expanded(
-                        child: FutureBuilder(
-                            future: getData(),
-                            builder: (context, snapshot) {
-                              if (snapshot.hasData) {
-                                return const Text('Loading1');
-                              } else {
-                                // return const Text("data");
-
-                                return ListView.builder(
-                                    itemCount: postList.length,
-                                    itemBuilder: (context, index) {
-                                      return Text(
-                                          postList[index].body.toString());
-                                    });
-                              }
-                            }),
-                      ),
-                    ),
+                    child: Container(child: Text("")),
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width,

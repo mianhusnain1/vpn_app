@@ -8,6 +8,7 @@ class LocationController extends GetxController {
       false.obs; // rxboolean allow you to create reactive bool
   Future<void> getVpnData() async {
     isLoading.value = true;
+    list.clear();
     list = await API.getVpnServer();
     isLoading.value = false;
   }
