@@ -32,7 +32,8 @@ class _LocationState extends State<Location> {
     return Scaffold(
         backgroundColor: Colors.white,
         body: Obx(() => _controller.isLoading.value
-            ? loadingwidget(context, "", "assets/lottie/AnimationServers.json")
+            ? loadingwidget(context, "Servers are loading...",
+                "assets/lottie/AnimationServers.json")
             : _controller.list.isEmpty
                 ? _empty(context)
                 : _VpnData()));
@@ -65,8 +66,55 @@ class _LocationState extends State<Location> {
   _VpnData() {
     return ListView.builder(
         itemCount: _controller.list.length,
-        itemBuilder: (context, i) => ListTile(
-              title: Text(_controller.list[i].hostname),
-            ));
+        itemBuilder: (context, i) => Column(
+              children: [
+                Container(
+                  child: Text("Now ${_controller.list.length} are available."),
+                ),
+                _vpntile(
+                    title: _controller.list[i].hostname,
+                    leadingIcon: Icon(Icons.person),
+                    ontap: () {})
+              ],
+            )
+        //  ListTile(
+        //       title: Text(_controller.list[i].hostname),)
+        );
+  }
+}
+
+class _vpntile extends StatelessWidget {
+  const _vpntile({
+    super.key,
+    required this.title,
+    required this.leadingIcon,
+    required this.ontap,
+  });
+  final String title;
+  final Icon leadingIcon;
+  final VoidCallback ontap;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: ontap,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 10),
+          decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 255, 212, 83),
+              borderRadius: BorderRadius.circular(20)),
+          child: ListTile(
+            leading: leadingIcon,
+            trailing: const Icon(Icons.arrow_forward_ios),
+            title: Text(
+              title,
+              style: const TextStyle(fontSize: 14),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
